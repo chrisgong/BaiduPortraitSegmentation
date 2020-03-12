@@ -33,13 +33,12 @@ class MainActivity : AppCompatActivity() {
         ivResult = findViewById(R.id.iv_result)
         ivRandom = findViewById(R.id.iv_random)
         pbLoading = findViewById(R.id.pb_loading)
-        ivRandom.setImageBitmap(BitmapFactory.decodeStream(assets.open(res[index])))
 
         res = arrayOf("1.jpg", "2.jpg", "3.jpg", "4.jpg")
 
-        var aip = AipBodyAnalysis(
-            "", "", ""
-        )
+        ivRandom.setImageBitmap(BitmapFactory.decodeStream(assets.open(res[index])))
+
+        var aip = AipBodyAnalysis(BuildConfig.APP_ID, BuildConfig.API_KEY, BuildConfig.SECRET_KEY)
 
         ivRandom.setOnClickListener {
             index += 1

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply from: 'key.gradle'
 
 android {
     compileSdkVersion 29
-
 
     defaultConfig {
         applicationId "com.gc.hi"
@@ -12,6 +12,10 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "APP_ID", "\"${appID}\"")
+        buildConfigField("String", "API_KEY", "\"${apiKey}\"")
+        buildConfigField("String", "SECRET_KEY", "\"${secretKey}\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
